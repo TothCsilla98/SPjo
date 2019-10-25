@@ -14,7 +14,6 @@ public class Carte {
 		this.cuprins= new ArrayList<Element>();
 	}
 	
-	
 	public void print()
 	{
 		System.out.println(this.name);
