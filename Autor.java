@@ -5,6 +5,7 @@ public class Autor {
 
 	public Autor(String nume) {
 		super();
+		
 		this.nume = nume;
 	}
 	
