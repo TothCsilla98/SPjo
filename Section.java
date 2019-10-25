@@ -28,7 +28,7 @@ public class Section implements Element{
 	{
 		return content.get(ind);
 	}
-	@Override
+
 	public void print()
 	{
 		System.out.println(this.title);
