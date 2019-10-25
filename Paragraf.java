@@ -7,8 +7,7 @@ public class Paragraf implements Element{
 		super();
 		this.text = text;
 	}
-	
-	@Override
+
 	public void print()
 	{
 		System.out.println("Paragraf: " + this.text);
