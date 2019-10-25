@@ -26,6 +26,7 @@ public class Capitol {
 	
 	public void print()
 	{
+		
 		System.out.println(this.nume);
 		for(Subcapitol x : this.subcapitole)
 		{
