@@ -7,10 +7,8 @@ public class Tabel implements Element{
 		super();
 		this.nume = nume;
 	}
-	
-	@Override
 	public void print()
 	{
-		System.out.println("Tabel: " + this.nume);
+		System.out.println("Tabel:  " + this.nume);
 	}
 }
