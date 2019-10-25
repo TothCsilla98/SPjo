@@ -24,6 +24,7 @@ public class Capitol {
 		return subcapitole.get(index);
 	}
 	
+	
 	public void print()
 	{
 		
