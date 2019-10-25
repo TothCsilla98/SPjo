@@ -8,7 +8,7 @@ public class Imagine implements Element{
 		this.nume = nume;
 	}
 	
-	@Override
+
 	public void print()
 	{
 		System.out.println("Imagine: " + this.nume);
