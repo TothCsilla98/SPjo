@@ -26,7 +26,6 @@ public class Subcapitol {
 	
 	public void print()
 	{
-		
 	}
 	
 	public int AddParagraf(String text)
