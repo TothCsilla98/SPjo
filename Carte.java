@@ -14,6 +14,7 @@ public class Carte {
 		this.cuprins= new ArrayList<Element>();
 	}
 	
+	
 	public void print()
 	{
 		System.out.println(this.name);
@@ -66,8 +67,8 @@ public class Carte {
 	}*/
 	
 	public static void main(String[] args)
-	{/*
-		Carte noapteBuna = new Carte("Noapte buna, copii!");
+	{
+		/*Carte noapteBuna = new Carte("Noapte buna, copii!");
 		Autor rpGheo = new Autor("Radu Pavel Gheo");
 		noapteBuna.AddAutor(rpGheo);
 		Section cap1 = new Section("Capitolul 1");
@@ -83,8 +84,9 @@ public class Carte {
 		cap111.addElm(new Paragraf("Text from subchapter 1.1.1"));
 		cap111.addElm(cap1111);
 		cap1111.addElm(new Imagine("Image subchapter 1.1.1.1"));
-		noapteBuna.print(); */
-		/*
+		noapteBuna.print();
+		
+		
 		
 		long startTime = System.currentTimeMillis();
 		Imagine img1 = new Imagine("Pamela Anderson");
@@ -95,7 +97,7 @@ public class Carte {
 		Section playboyS2 = new Section("Summer Girls");
 		playboyS2.addElm(img2);
 		playboyS2.addElm(img3);
-		Carte playboy = new Carte("Playboy");
+	    Carte playboy = new Carte("Playboy");
 
 		playboy.addContent(playboyS1);
 		playboy.addContent(playboyS2);
@@ -115,33 +117,57 @@ public class Carte {
 		
 		
 		
+			long startTime = System.currentTimeMillis();
+			ImageProxy img1 = new ImageProxy("Pamela Anderson");
+			ImageProxy img2 = new ImageProxy("Kim Kardashian");
+			ImageProxy img3 = new ImageProxy("Kirby Griffin");
+			Section playboyS1 = new Section("Front Cover");
+			playboyS1.addElm(img1);
+			Section playboyS2 = new Section("Summer Girls");
+			playboyS2.addElm(img2);
+			playboyS2.addElm(img3);
+		    Carte playboy = new Carte("Playboy");
+			playboy.addContent(playboyS1);
+			playboy.addContent(playboyS2);
+			long endTime = System.currentTimeMillis();
+			System.out.println("Creation of the content took " + (endTime -
+			startTime) + " milliseconds");
+			startTime = System.currentTimeMillis();
+			playboyS1.print();
+			endTime = System.currentTimeMillis();
+			System.out.println("Printing of the section 1 took " + (endTime -
+			startTime) + " milliseconds");
+			startTime = System.currentTimeMillis();
+			playboyS1.print();
+			endTime = System.currentTimeMillis();
+			System.out.println("Printing again the section 1 took " + (endTime -
+			startTime) + " milliseconds");*/
+		   
+		Section cap1 = new Section("Capitolul 1");
+		Paragraf p1 = new Paragraf("Paragraph 1");
+		cap1.addElm(p1);
+		Paragraf p2 = new Paragraf("Paragraph 2");
+		cap1.addElm(p2);
+		Paragraf p3 = new Paragraf("Paragraph 3");
+		cap1.addElm(p3);
+		Paragraf p4 = new Paragraf("Paragraph 4");
+		cap1.addElm(p4);
+		System.out.println("Printing without Alignment");
+
+		System.out.println();
+		cap1.print();
+		p1.setAlignStrategy(new AlignCenter());
+		p2.setAlignStrategy(new AlignRight());
+		p3.setAlignStrategy(new AlignLeft());
+		System.out.println();
+		System.out.println("Printing with Alignment");
+		System.out.println();
+		cap1.print();
+			
 		
-		*/
-		long startTime = System.currentTimeMillis();
-		ImageProxy img1 = new ImageProxy("Pamela Anderson");
-		ImageProxy img2 = new ImageProxy("Kim Kardashian");
-		ImageProxy img3 = new ImageProxy("Kirby Griffin");
-		Section playboyS1 = new Section("Front Cover");
-		playboyS1.addElm(img1);
-		Section playboyS2 = new Section("Summer Girls");
-		playboyS2.addElm(img2);
-		playboyS2.addElm(img3);
-		Carte playboy = new Carte("Playboy");
-		playboy.addContent(playboyS1);
-		playboy.addContent(playboyS2);
-		long endTime = System.currentTimeMillis();
-		System.out.println("Creation of the content took " + (endTime -
-		startTime) + " milliseconds");
-		startTime = System.currentTimeMillis();
-		playboyS1.print();
-		endTime = System.currentTimeMillis();
-		System.out.println("Printing of the section 1 took " + (endTime -
-		startTime) + " milliseconds");
-		startTime = System.currentTimeMillis();
-		playboyS1.print();
-		endTime = System.currentTimeMillis();
-		System.out.println("Printing again the section 1 took " + (endTime -
-		startTime) + " milliseconds");
+		
+		
+		
 	}
 	
 }
