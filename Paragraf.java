@@ -1,6 +1,7 @@
 package dp_lab2;
 
 public class Paragraf implements Element{
+
 	private String text;
 	private  AlignStrategy aliniere;
 
@@ -26,5 +27,26 @@ public class Paragraf implements Element{
 		else
 			System.out.println("Paragraf: " + this.text);
 	}
+	
+	public void accept(Visitor a) {
+	
+		a.visit(this);
+		
+	}
+	 public void add(Element element) {
+    System.out.println("ERORR");
+  }
+
+  @Override
+  public void remove(Element element) {
+    System.out.println("ERORR");
+
+  }
+
+  @Override
+  public Element getElement(int index) {
+    System.out.println("ERORR");
+    return null;
+  }
 
 }
