@@ -28,7 +28,7 @@ public class Section implements Element{
 	{
 		return content.get(ind);
 	}
-
+	@Override
 	public void print()
 	{
 		System.out.println(this.title);
@@ -37,4 +37,25 @@ public class Section implements Element{
 			x.print();
 		}
 	}
+	
+public void accept(Visitor a) {
+	a.visit(this);
+	
+	 for (Element x : content) {
+	      x.accept(a);
+	    }
+		
+}
+
+@Override
+public void add(Element element) {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public void remove(Element element) {
+	// TODO Auto-generated method stub
+	
+}
 }
