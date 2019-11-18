@@ -185,7 +185,6 @@ public class Carte implements Element{
 		System.out.println();
 		cap1.print();
 			
-		*/
 		
 		
 		
@@ -204,7 +203,14 @@ public class Carte implements Element{
 			cap1.addElm(new Tabel("Table 1"));
 			BookStatistics stats = new BookStatistics();
 			cap1.accept(stats);
-			stats.printStatistics();
+			stats.printStatistics(); */
+
+		    
+			Builder jsonBuilder = new JSONBuilder();
+       	    jsonBuilder.Build();
+            Element myBook = jsonBuilder.GetResult();
+            myBook.print();
+			
 		
 		
 		
