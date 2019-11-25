@@ -203,20 +203,23 @@ public class Carte implements Element{
 			cap1.addElm(new Tabel("Table 1"));
 			BookStatistics stats = new BookStatistics();
 			cap1.accept(stats);
-			stats.printStatistics(); */
+			stats.printStatistics(); 
 
 		    
-			Builder jsonBuilder = new JSONBuilder();
+			//Builder jsonBuilder = new JSONBuilder();
        	    jsonBuilder.Build();
             Element myBook = jsonBuilder.GetResult();
             myBook.print();
+            
+            */
+			Command cmd1 = new OpenCommand("book.json");
+			cmd1.execute();
+			Command cmd2 = new StatisticsCommand();
+			cmd2.execute();
+			DocumentManager.getBook().print();
+			}
 			
 		
 		
 		
 	}
-
-
-
-	
-}
