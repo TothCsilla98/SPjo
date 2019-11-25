@@ -18,6 +18,8 @@ public class JSONBuilder implements Builder {
 
     
 public Element document;
+public String filename;
+
     
 public final String bookJSONPath = "../book.json";
 
@@ -27,6 +29,9 @@ public final String bookJSONPath = "../book.json";
   
  return document;
     }
+ public JSONBuilder(String filename) {
+	    this.filename = filename;
+	  }
 
  
    @Override
