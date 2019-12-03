@@ -1,9 +1,17 @@
 package dp_lab2;
 
-public class Paragraf implements Element{
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Observer;
+
+
+
+public class Paragraf implements Element,Observable{
 
 	private String text;
 	private  AlignStrategy aliniere;
+	private List<Observerr> obs=new ArrayList<Observerr>();
+	String OldValue;
 
 	public Paragraf(String text) {
 		super();
@@ -48,5 +56,53 @@ public class Paragraf implements Element{
     System.out.println("ERORR");
     return null;
   }
+
+
+
+@Override
+public void addObserver(Observerr obs) {
+	this.obs.add(obs);
+	
+}
+
+
+
+@Override
+public void removeObserver(Observerr obs) {
+	this.obs.remove(obs);
+}
+
+
+
+@Override
+public void notifyObservers() {
+	for(Observerr o :obs)
+	{
+		o.update(OldValue,text);
+	}
+	
+	
+	
+}
+
+
+
+
+
+
+@Override
+public void setNewValue(String newValue) {
+	OldValue=this.text;
+    text=newValue;
+    notifyObservers();
+	
+}
+
+
+
+
+
+
+
 
 }
