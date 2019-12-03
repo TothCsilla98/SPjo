@@ -1,10 +1,14 @@
 package dp_lab2;
 
+import java.util.List;
+import java.util.Observer;
 import java.util.concurrent.TimeUnit;
 
-public class ImageProxy implements Element {
+public class ImageProxy implements Element,Observable {
 	private String nume;
+	private String oldValue;
 	private Imagine realImage;
+	private List<Observerr> obs;
 
 	public ImageProxy(String nume) {
 		super();
@@ -40,5 +44,30 @@ public void accept(Visitor a) {
     System.out.println("ERORR - IMG PROXY");
     return null;
   }
+@Override
+public void addObserver(Observerr obs) {
+	this.obs.add( obs);
+	
+}
+@Override
+public void removeObserver(Observerr obs) {
+	 this.obs.remove(obs);
+	
+}
+@Override
+public void notifyObservers() {
+	for(Observerr o :obs)
+	{
+		o.update(oldValue,nume);
+	}
+	
+}
+@Override
+public void setNewValue(String newValue) {
+	oldValue=this.nume;
+    nume=newValue;
+    this.notifyObservers();
+	
 }
 
+}
