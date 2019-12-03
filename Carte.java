@@ -3,6 +3,7 @@ package dp_lab2;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observer;
 
 public class Carte implements Element{
 	private String name;
@@ -204,22 +205,60 @@ public class Carte implements Element{
 			BookStatistics stats = new BookStatistics();
 			cap1.accept(stats);
 			stats.printStatistics(); 
-
+  
 		    
-			//Builder jsonBuilder = new JSONBuilder();
+			Builder jsonBuilder = new JSONBuilder();
        	    jsonBuilder.Build();
             Element myBook = jsonBuilder.GetResult();
             myBook.print();
-            
-            */
-			Command cmd1 = new OpenCommand("book.json");
-			cmd1.execute();
-			Command cmd2 = new StatisticsCommand();
-			cmd2.execute();
-			DocumentManager.getBook().print();
-			}
+		
+		
+		
+		Command cmd1 = new OpenCommand("book.json");
+		cmd1.execute();
+		Command cmd2 = new StatisticsCommand();
+		cmd2.execute();
+		DocumentManager.getBook().print();*/
+		
+		Section cap1 = new Section("Capitolul 1");
+		Paragraf p1 = new Paragraf("Paragraph 1");
+		cap1.add(p1);
+		Paragraf p2 = new Paragraf("Paragraph 2");
+		cap1.add(p2);
+		Paragraf p3 = new Paragraf("Paragraph 3");
+		cap1.add(p3);
+		Paragraf p4 = new Paragraf("Paragraph 4");
+		cap1.add(p4);
+		cap1.add(new ImageProxy("ImageOne"));
+		cap1.add(new Imagine("ImageTwo"));
+		cap1.add(new Paragraf("Some text"));
+		cap1.add(new Tabel("Table 1"));
+		FirstObserver firstObserver = new FirstObserver();
+		SecondObserver secondObserver = new SecondObserver();
+		cap1.addObserver( firstObserver);
+		cap1.addObserver( secondObserver);
+		p1.addObserver( firstObserver);
+		p1.addObserver( secondObserver);
+		p2.addObserver(firstObserver);
+		cap1.setNewValue("CHAPTER 1");
+		p1.setNewValue("PARAGRAPH 2");
+		p2.setNewValue("PARAGRAPH 3");
+		cap1.removeObserver( firstObserver);
+		cap1.setNewValue("CHAPTER 1.1");
 			
 		
 		
 		
 	}
+
+
+	@Override
+	public void setNewValue(String newValue) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	
+}
