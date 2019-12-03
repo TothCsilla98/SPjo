@@ -1,9 +1,13 @@
 package dp_lab2;
 
+import java.util.List;
+import java.util.Observer;
 import java.util.concurrent.TimeUnit;
 
-public class Imagine implements Element{
+public class Imagine implements Element,Observable{
 	String nume;
+	String oldValue;
+	private List<Observerr> obs;
 
 	public Imagine(String nume) {
 		super();
@@ -39,5 +43,35 @@ public class Imagine implements Element{
     System.out.println("ERORR");
     return null;
   }
+
+@Override
+public void addObserver(Observerr obs) {
+  this.obs.add(obs);
+	
 }
 
+@Override
+public void removeObserver(Observerr obs) {
+	this.obs.remove(obs);
+	
+}
+
+@Override
+public void notifyObservers() {
+	
+	for(Observerr o :obs)
+	{
+		o.update(oldValue,nume);
+	}
+	
+}
+
+@Override
+public void setNewValue(String newValue) {
+	oldValue=this.nume;
+    nume=newValue;
+	this.notifyObservers();
+	
+	
+}
+}
