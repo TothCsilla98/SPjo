@@ -1,4 +1,4 @@
-package dp_lab2;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,11 @@ public class Section implements Element,Observable{
 		this.title = title;
 		this.content=new ArrayList<Element>();
 	}
-
+    public List<Element> getContent(){
+    	return this.content;
+    	
+    }
+	
 	public int addElm(Element elm)
 	{
 		content.add(elm);
@@ -53,7 +57,7 @@ public void accept(Visitor a) {
 
 @Override
 public void add(Element element) {
-	// T
+	 content.add(element);
 	
 }
 
@@ -89,6 +93,24 @@ public void setNewValue(String newValue) {
 	oldValue=this.title;
     title=newValue;
 	this.notifyObservers();
+	
+}
+public Element getLastElement() {
+	return content.get(content.size()-1);
+	
+}
+public Section copy()
+{
+	Section s=new Section(this.title);
+	for(Element e:getContent())
+	{
+		s.add(s.copy());
+	}
+	return s;
+ }
+public void SetContent(List<Element> elemente) {
+	// TODO Auto-generated method stub
+   this.content=content;	
 	
 }
 }
