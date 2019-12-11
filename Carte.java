@@ -1,4 +1,4 @@
-package dp_lab2;
+
 
 import java.awt.Image;
 import java.util.ArrayList;
@@ -43,6 +43,13 @@ public class Carte implements Element{
 		cuprins.add(elm);
 		return cuprins.indexOf(elm);
 	}
+	public List<Element> getContent()
+	{
+		return this.cuprins;
+	}
+	 public void SetContent(List<Element> elemente) {
+	        this.cuprins = elemente;
+	    }
 	
 	 public void accept(Visitor a) {
    
@@ -220,6 +227,8 @@ public class Carte implements Element{
 		cmd2.execute();
 		DocumentManager.getBook().print();*/
 		
+		//lab
+		/*
 		Section cap1 = new Section("Capitolul 1");
 		Paragraf p1 = new Paragraf("Paragraph 1");
 		cap1.add(p1);
@@ -245,10 +254,38 @@ public class Carte implements Element{
 		p2.setNewValue("PARAGRAPH 3");
 		cap1.removeObserver( firstObserver);
 		cap1.setNewValue("CHAPTER 1.1");
-			
+		*/
+		
+		Section cap1 = new Section("Capitolul 1");
+		cap1.add(new Paragraf("Moto capitol"));
+		cap1.add(new Paragraf("Another One"));
+		cap1.add(new Paragraf("Another Two"));
+		cap1.add(new Paragraf("Another Three"));
+		DocumentManager.getInstance().setSection(cap1);
+		System.out.println("Book Content: ");
+		DocumentManager.getInstance();
+		DocumentManager.getSection().print();
 		
 		
+		new DeleteCommand().execute();
+		System.out.println("\nBook Content after the first delete: ");
+		DocumentManager.getInstance();
+		DocumentManager.getSection().print();
 		
+		new DeleteCommand().execute();
+		System.out.println("\nBook Content after the second delete: ");
+		DocumentManager.getInstance();
+		DocumentManager.getSection().print();
+		
+		Command undoCommand = new UndoCommand();
+		undoCommand.execute();
+		System.out.println("\nBook Content after first undo: ");
+		DocumentManager.getInstance();
+		DocumentManager.getSection().print();
+		undoCommand.execute();
+		System.out.println("\nBook Content after second undo: ");
+		DocumentManager.getInstance();
+		DocumentManager.getSection().print();
 	}
 
 
@@ -256,6 +293,13 @@ public class Carte implements Element{
 	public void setNewValue(String newValue) {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	@Override
+	public Section copy() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
